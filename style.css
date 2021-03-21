@@ -43,31 +43,11 @@ li a {
     transition-duration: 0.4s;
     margin: 5px;
 }
-.dateStyle:hover {
-    opacity: 1;
-    font-size: 22px;
-    margin: 1px;
-}
-.quoteStyle {
-    font-family:'Merriweather', serif;
-    font-size: 18px;
-    margin: 20px;
-    transition-duration: 0.4s;
-    opacity: 1;
-}
-.quoteStyle:hover {
-    opacity:0.85;
-    font-size: 18.5px;
-}
 .timeStyle {
     font-family:'PT Serif', serif;
     font-size: 80px;
     opacity: 0.9;
     transition-duration: 0.4s;
-}
-.timeStyle:hover {
-    opacity: 1;
-    font-size: 85px;
 }
 .button {
     font-family: sans-serif;
@@ -94,15 +74,14 @@ li a {
     background-color: white;
 }
 .lineStyle:hover {
-    width: 75%;
-    opacity: 1;
+    width:60%;
+    opacity:100%;
 }
 .button:hover {
     background-color: white;
     color: black;
 }
 #backgroundStyle {
-    background-image: url('https://space-facts.com/wp-content/uploads/milky-way.png');
     z-index: -2;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -120,8 +99,6 @@ li a {
 .navbar {
     overflow: hidden;
     background-color: #333;
-    transition-duration: 0.4s;
-    opacity: 0;
 }
 .navbar a {
     float: left;
@@ -176,9 +153,6 @@ li a {
     display: block;
     transition-duration: 0.4s;
 }
-.navbar:hover {
-    opacity:0.9;
-}
 .mantraStyle {
     text-align: center;
     font-family:'PT Serif', serif;
@@ -188,12 +162,14 @@ li a {
     transition-duration: 0.4s;
     opacity: 0.9;
 }
-.mantraStyle:hover {
-    opacity: 1;
-    font-size: 43px;
-}
 /* Create two unequal columns that floats next to each other */
-
+.introductionStyle {
+    width:50%;
+    font-family:'Merriweather', serif;
+    font-size: 18px;
+    text-align: left;
+    margin:auto;
+}
 /* Left column */
  .leftcolumn {
     float: left;
@@ -228,8 +204,15 @@ li a {
  .footer {
     padding: 20px;
     text-align: center;
-    background: #ddd;
+    background-color: #333;
     margin-top: 20px;
+    position: fixed;
+    width:100%;
+    bottom: 0;
+    left: 0;
+    font-family:'Lato', serif;
+    font-size: 10px;
+    color:#aaa;
 }
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
  @media screen and (max-width: 800px) {

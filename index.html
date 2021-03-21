@@ -1,6 +1,34 @@
+<!DOCTYPE html>
 <html>
-<body>
-<h1>Please help me</h1>
-<p>How the hell do you make a website?</p>
-</body>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <title>Perspectives</title>
+    </head>
+
+    <body onload="startTime(); startDate(); startQuote(); startMantra();" id="backgroundStyle">
+        <div class="navbar">
+             <a class="current" href="index.html">Home</a>
+             <a href="Posts.html">Posts</a>
+            <div class="dropdown">
+                <button class="dropbtn">Tools
+                     <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                     <a href="#">Journal</a>
+                     <a href="Todo.html">Todo</a>
+                     <a href="#">Media</a>
+                </div>
+            </div>
+        </div>
+        <div style="margin:10px" class="dateStyle" id="date"></div>
+        <div class="timeStyle" id="display"></div>
+        <hr class="lineStyle">
+        <div class="mantraStyle" id="mantraDisplay">
+        </div>
+        <div class="quoteStyle" id="quoteDisplay" style="text-align:center">
+        </div>
+        <script type="text/javascript" src="quotes.js"></script>
+    </body>
+
 </html>

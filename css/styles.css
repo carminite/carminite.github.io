@@ -2438,17 +2438,17 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #f4623a;
+  background-color: #584e4b;
   border-color: #f4623a;
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #f24516;
+  background-color: #584e4b;
   border-color: #ee3e0d;
 }
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
-  background-color: #f24516;
+  background-color: #584e4b;
   border-color: #ee3e0d;
   box-shadow: 0 0 0 0.2rem rgba(246, 122, 88, 0.5);
 }
@@ -10021,7 +10021,7 @@ hr.light {
   color: #212529;
 }
 #mainNav .navbar-nav .nav-item .nav-link {
-  color: #6c757d;
+  color: #93a0ac;
   font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 700;
   font-size: 0.9rem;
@@ -10075,7 +10075,7 @@ hr.light {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 4.5rem);
-  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/bg-masthead.jpg");
+  background: linear-gradient(to bottom, rgba(177, 21, 42, 0.5) 0%, rgba(177, 21, 42, 0.8) 100%), url("../assets/img/masthead.JPG");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -10104,14 +10104,14 @@ header.masthead h1 {
   }
 }
 
-#portfolio .container-fluid, #portfolio .container-sm, #portfolio .container-md, #portfolio .container-lg, #portfolio .container-xl {
+#tutorial .container-fluid, #tutorial .container-sm, #tutorial .container-md, #tutorial .container-lg, #tutorial .container-xl {
   max-width: 1920px;
 }
-#portfolio .container-fluid .portfolio-box, #portfolio .container-sm .portfolio-box, #portfolio .container-md .portfolio-box, #portfolio .container-lg .portfolio-box, #portfolio .container-xl .portfolio-box {
+#tutorial .container-fluid .tutorial-box, #tutorial .container-sm .tutorial-box, #tutorial .container-md .tutorial-box, #tutorial .container-lg .tutorial-box, #tutorial .container-xl .tutorial-box {
   position: relative;
   display: block;
 }
-#portfolio .container-fluid .portfolio-box .portfolio-box-caption, #portfolio .container-sm .portfolio-box .portfolio-box-caption, #portfolio .container-md .portfolio-box .portfolio-box-caption, #portfolio .container-lg .portfolio-box .portfolio-box-caption, #portfolio .container-xl .portfolio-box .portfolio-box-caption {
+#tutorial .container-fluid .tutorial-box .tutorial-box-caption, #tutorial .container-sm .tutorial-box .tutorial-box-caption, #tutorial .container-md .tutorial-box .tutorial-box-caption, #tutorial .container-lg .tutorial-box .tutorial-box-caption, #tutorial .container-xl .tutorial-box .tutorial-box-caption {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10123,20 +10123,20 @@ header.masthead h1 {
   text-align: center;
   opacity: 0;
   color: #fff;
-  background: rgba(244, 98, 58, 0.9);
+  background: rgba(98, 98, 98, 0.9);
   transition: opacity 0.25s ease;
   text-align: center;
 }
-#portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-sm .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-md .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-lg .portfolio-box .portfolio-box-caption .project-category, #portfolio .container-xl .portfolio-box .portfolio-box-caption .project-category {
+#tutorial .container-fluid .tutorial-box .tutorial-box-caption .project-category, #tutorial .container-sm .tutorial-box .tutorial-box-caption .project-category, #tutorial .container-md .tutorial-box .tutorial-box-caption .project-category, #tutorial .container-lg .tutorial-box .tutorial-box-caption .project-category, #tutorial .container-xl .tutorial-box .tutorial-box-caption .project-category {
   font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
 }
-#portfolio .container-fluid .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-sm .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-md .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-lg .portfolio-box .portfolio-box-caption .project-name, #portfolio .container-xl .portfolio-box .portfolio-box-caption .project-name {
+#tutorial .container-fluid .tutorial-box .tutorial-box-caption .project-name, #tutorial .container-sm .tutorial-box .tutorial-box-caption .project-name, #tutorial .container-md .tutorial-box .tutorial-box-caption .project-name, #tutorial .container-lg .tutorial-box .tutorial-box-caption .project-name, #tutorial .container-xl .tutorial-box .tutorial-box-caption .project-name {
   font-size: 1.2rem;
 }
-#portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption, #portfolio .container-sm .portfolio-box:hover .portfolio-box-caption, #portfolio .container-md .portfolio-box:hover .portfolio-box-caption, #portfolio .container-lg .portfolio-box:hover .portfolio-box-caption, #portfolio .container-xl .portfolio-box:hover .portfolio-box-caption {
+#tutorial .container-fluid .tutorial-box:hover .tutorial-box-caption, #tutorial .container-sm .tutorial-box:hover .tutorial-box-caption, #tutorial .container-md .tutorial-box:hover .tutorial-box-caption, #tutorial .container-lg .tutorial-box:hover .tutorial-box-caption, #tutorial .container-xl .tutorial-box:hover .tutorial-box-caption {
   opacity: 1;
 }
 

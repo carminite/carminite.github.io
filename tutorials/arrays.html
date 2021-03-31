@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Portfolio of carminite. What else to say?" />
+        <meta name="author" content="Bernie Chen" />
+        <title>carminite - Arrays Tutorial</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS-->
+        <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />-->
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-scrolled navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">carminite</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="arrays.html">Arrays</a></li>
+                        <li class="nav-item"><a class="nav-link" href="2D-arrays.html">2D Arrays</a></li>
+                        <li class="nav-item"><a class="nav-link" href="arraylist.html">ArrayList</a></li>
+                        <li class="nav-item"><a class="nav-link" href="oop1.html">Attributes/Behaviours</a></li>
+                        <li class="nav-item"><a class="nav-link" href="oop2.html">Superclasses/Subclasses</a></li>
+                        <li class="nav-item"><a class="nav-link" href="recursion.html">Recursion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="page-section bg-primary">
+            <div class="container">
+                <h2 class="text-white text-center mt-0">Arrays</h2>
+                <hr class="divider light my-4" />
+                <p class="text-center text-white mb-5">A set of variables</p>
+            </div>
+        </section>
+        <section class="page-section">
+            <div class="container">
+                <p>
+                    Computer programming can always be broken down into the processing of variables, but often the number of variables you need becomes impractical to declare and assign each one.
+                    <br><br>
+                    Take a classroom of 30 students. If you were to make a String variable for each student, you’d already have 30 lines of code, one for each variable with a distinct name from the others. As well, searching for a name would take at least lines of code to implement, and sorting would be impossible. As well, especially in competitive programming, you are given the number of variables you have to store; you cannot hardcode it. Thus, a solution was given: the array.
+                    <br><br>
+                    An array is a collection of items, all grouped together under one name. The items themselves, instead of having identifiers, are indexed from 0 onwards.
+                </p>
+                <h2 class="text-center mt-0">Implementation</h2>
+                <hr class="divider my-4" />
+                <p>
+                    Let’s show this with an example: create an attendance list for the names of a class of <code>n</code> people, where <code>n</code> is an integer greater than 0.
+                    <br><br>
+                    <code>String[] attendance = new String[n];</code>
+                    <br><br>
+                    Here we initialize our array. Because arrays are not primitive variables, they need the keyword new. As well, the <code>n</code> is put in the square brackets to make sure the length of the array (the number of items) is equal to <code>n</code>. Of course, if you don’t want a <code>String</code> and want some other variable type, just replace the <code>String</code> with the name of that type (i.e. <code>int[] arr = new int[n]</code> for integer).
+                    <br><br>
+                    Congratulations! You just created an empty array!
+                </p>
+                <img src="../assets/img/tutorial/pages/arrays/arrays1.png" alt="Empty Array" height="150"> 
+                <p>
+                    You can imagine an array as a line of empty slots, numbered from <code>0</code> to <code>n-1</code> (note that the length of the array is still <code>n-1-0+1=n</code>). Now let’s fill them.
+
+                    The first student on our list is Aaron, so let’s put that in.
+                    <br><br>
+                    <code>attendance[0] = “Aaron”;</code>
+                </p>
+                <img src="../assets/img/tutorial/pages/arrays/arrays2.png" alt="Array with Aaron in the first index" height="150">
+                <p>
+                    Each slot in the array behaves like a variable, and thus the syntax is about the same. The main difference is that, in place of an identifier or name, use the name of the array followed by the index within square brackets.
+                    <br><br>
+                    Having said that, reading from an array from an index is the same as reading the variable value:
+                    <br><br>
+                    <code>String read = attendance[0];</code>
+                </p>
+                <h2 class="text-center mt-0">Other Methods</h2>
+                <hr class="divider my-4" />
+                <ul>
+                    <li><code>.length</code>: returns the length of the array (e.g. <code>array.length</code>).</li>
+                    <br>
+                    <li><code>Arrays.sort()</code>: returns a sorted version of the array using Quicksort (e.g. <code>Arrays.sort(array)</code>).</li>
+                </ul>
+                <p>
+                    For a downloadable document, click <a href="https://docs.google.com/document/d/1bd6c5u_q1DSkgEsKecE46APpokAQ0znzPoPKLD0_Ptc/edit?usp=sharing">here</a>.
+                </p>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="bg-light py-5">
+            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - carminite | Made with HTML, JS, and CSS | Adapted from <a href="https://startbootstrap.com/theme/creative">Start Bootstrap's Creative theme</a></div></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>-->
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

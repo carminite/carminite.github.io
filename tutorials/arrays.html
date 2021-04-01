@@ -27,10 +27,10 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="arrays.html">Arrays</a></li>
-                        <li class="nav-item"><a class="nav-link" href="2D-arrays.html">2D Arrays</a></li>
+                        <li class="nav-item"><a class="nav-link" href="search-and-sort.html">Search and Sort</a></li>
                         <li class="nav-item"><a class="nav-link" href="arraylist.html">ArrayList</a></li>
-                        <li class="nav-item"><a class="nav-link" href="oop1.html">Attributes/Behaviours</a></li>
-                        <li class="nav-item"><a class="nav-link" href="oop2.html">Superclasses/Subclasses</a></li>
+                        <li class="nav-item"><a class="nav-link" href="oop1.html">Basic OOP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="oop2.html">Advanced OOP</a></li>
                         <li class="nav-item"><a class="nav-link" href="recursion.html">Recursion</a></li>
                     </ul>
                 </div>
@@ -86,8 +86,59 @@
                     <br>
                     <li><code>Arrays.sort()</code>: returns a sorted version of the array using Quicksort (e.g. <code>Arrays.sort(array)</code>).</li>
                 </ul>
+            </div>
+        </section>
+        <section class="page-section">
+            <div class="container">
+                <h2 class="text-center mt-0">2D Arrays</h2>
+                <hr class="divider my-4" />
                 <p>
-                    For a downloadable document, click <a href="https://docs.google.com/document/d/1bd6c5u_q1DSkgEsKecE46APpokAQ0znzPoPKLD0_Ptc/edit?usp=sharing">here</a>.
+                    Arrays make it possible to group and index multiple objects together under one name. But what if the thing you want to group is an array?
+                </p>
+                <h2 class="text-center mt-0">Implementation</h2>
+                <hr class="divider my-4" />
+                <p>
+                    <code>int[] [] arr = new int[rows] [columns];</code>
+                    <br><br>
+                    We have established that 1D arrays can be represented as a line of “slots”, each slot representing a variable.
+                </p>
+                <img src="../assets/img/tutorial/pages/arrays2/arrays20.png" alt="Empty Array" height="150"> 
+                <p>
+                    Then what if each slot contained an array?
+                    <br><br>
+                    <code>int[] [] arr = new int[4] [3];</code>
+                </p>
+                <img src="../assets/img/tutorial/pages/arrays2/arrays21.png" alt="Empty 2D Array" height="300">
+                <p>
+                    Now we have a 4 by 3 array, which we could interpret as an array consisting of 4 arrays, each with length 3.
+                    <br><br>
+                    Then let’s put a value inside.
+                    <br><br>
+                    <code>arr[0] [2] = 69;</code>
+                </p>
+                <img src="../assets/img/tutorial/pages/arrays2/arrays22.png" alt="2D Array with 69" height="300">
+                <p>
+                    <br>Similar to 1D arrays, accessing the individual values in a 2D array only requires the array name as well as the indices of the value. Remember that the first index is for row, and the second for column.
+                </p>
+                <h2 class="text-center mt-0">Other Methods</h2>
+                <hr class="divider my-4" />
+                <p>
+                    In 1D arrays, using <code>.length</code> returns the length of the array (the number of elements). In 2D arrays, that same method only returns the number of rows in the array (remember that a 2D array is just an array of arrays). To find the number of elements in a row <code>n</code>, you can use:
+                    <br><br>
+                    <code>arr[n].length</code>
+                    <br><br>
+                    Having said that, it is possible for every row in an array to have different lengths.
+                </p>
+                <hr class="divider my-4" />
+                <p class="text-left text-muted">
+                    <br>
+                    Bibliography:
+                    <br><br>
+                    ICS4U Course Documents
+                    <br><br>
+                    For a downloadable document on 1D arrays, click <a href="https://docs.google.com/document/d/1bd6c5u_q1DSkgEsKecE46APpokAQ0znzPoPKLD0_Ptc/edit?usp=sharing">here</a>.
+                    <br><br>
+                    For a downloadable document on 2D arrays, click <a href="https://docs.google.com/document/d/1l0ZFIDJ0BXH82-3yJpSqHOoA4WFLuRBfMqhbbvlPQTM/edit?usp=sharing">here</a>.
                 </p>
             </div>
         </section>

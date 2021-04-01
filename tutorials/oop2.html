@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Portfolio of carminite. What else to say?" />
+        <meta name="author" content="Bernie Chen" />
+        <title>carminite - Advanced OOP Tutorial</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS-->
+        <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />-->
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-scrolled navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">carminite</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="arrays.html">Arrays</a></li>
+                        <li class="nav-item"><a class="nav-link" href="search-and-sort.html">Search and Sort</a></li>
+                        <li class="nav-item"><a class="nav-link" href="arraylist.html">ArrayList</a></li>
+                        <li class="nav-item"><a class="nav-link" href="oop1.html">Basic OOP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="oop2.html">Advanced OOP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="recursion.html">Recursion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="page-section bg-primary">
+            <div class="container">
+                <h2 class="text-white text-center mt-0">Advanced OOP</h2>
+                <hr class="divider light my-4" />
+                <p class="text-center text-white mb-5">Inheritance and Polymorphism</p>
+            </div>
+        </section>
+        <section class="page-section">
+            <div class="container">
+                <p>
+                    Another property of object-oriented programming is that classes often are similar to other classes, and have similar attributes and behaviours. So instead of rewriting all the content, we use inheritance.
+                </p>
+                <h2 class="text-center mt-0">Implementation</h2>
+                <hr class="divider my-4" />
+                <p>
+                    <code>public class Child extends Parent {
+                    <br><br>
+                    }</code>
+                    <br><br>
+                    When a class extends another class, it inherits all the attributes and behaviours (field variables and methods) of that class, making it a subclass of its parent class (or superclass). This means that, unless there is override (which will be explained later), everything you could do in the superclass, you can do in the subclass.
+                    <br><br>
+                    For example, let’s say you have a superclass called Person.
+                    <br><br>
+                    <code>public class Person {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;private String name;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;public Person(String n) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name = n;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;public String getName() {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return name;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;public void setName(String n) {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name = n;<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;public void greet() {<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(“Hi”);<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }</code>
+                </p>
+                <img src="../assets/img/tutorial/pages/oop2/oop21.png" alt="" height="400">
+                <p>
+                    You may recognize this from the <a href="oop1.html">Basic OOP tutorial</a>.
+                    <br><br>
+                    But what if we don’t want a generic person, but a middle-aged Italian plumber?
+                    <br><br>
+                    <code>public class Plumber extends Person {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;private int lives;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;public Plumber(String n) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   super(n);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;public void oneUp() {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lives++;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;@Override<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;public void greet() {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(“It’s-a me, ”+this.getName());<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }</code>
+                </p>
+                <img src="../assets/img/tutorial/pages/oop2/oop22.png" alt="" height="400">
+                <p>
+                    Let’s go over the new things we see.
+                </p>
+                <h3 class="text-center mt-0">1. super()</h3>
+                <hr class="divider my-4" />
+                <p>
+                    A subclass inherits from its superclass everything but its constructor, so super is used to solve this problem. In the program above, the constructor in Plumber will take the name of the Plumber as a parameter and pass it down to the Person constructor through <code>super()</code>, so the name variable gets assigned the name parameter. You can also use super to refer to attributes and behaviours in the superclass.
+                </p>
+                <h3 class="text-center mt-0">2. @Override Annotation</h3>
+                <hr class="divider my-4" />
+                <p>
+                    Sometimes, being specific as a subclass calls for change of the methods that it inherits. If the name and parameters of the method are the same in both classes, the subclass version is always executed, or overrides. The <code>@Override</code> annotation is used to organize and show more clarity.
+                </p>
+                <h3 class="text-center mt-0">3. this</h3>
+                <hr class="divider my-4" />
+                <p>
+                    The keyword <code>this</code> is used to refer to the object itself. This is especially useful when you are not able to directly access the attributes of a superclass (due to them being private) and thus need to use <code>get()</code> and <code>set()</code> methods instead (in this case, instead of using <code>name</code> which is <code>private</code> under <code>Person</code>, we use <code>this.getName()</code>. We can also use <code>super.getName()</code>).
+                    <br><br>
+                    So if we create a Plumber object and use a few methods:
+                    <br>
+                    <code>Plumber mario = new Plumber(“Mario”);<br>
+                    System.out.println(mario.getName());<br>
+                    mario.greet();</code>
+                    <br><br>
+                    The following will output:
+                    <br><br>
+                    <code>Mario<br>
+                    It’s-a me, Mario</code>
+                </p>
+                <h2 class="text-center mt-0">Interfaces</h2>
+                <hr class="divider my-4" />
+                <p>
+                    Sometimes, there are multiple attributes and behaviours required in a class, but using inheritance isn't convenient nor useful. Consider the following code segment.
+                    <br><br>
+                    <code>
+                        public class Animal {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;int age;
+                            &nbsp;&nbsp;&nbsp;&nbsp;public Animal(int a) {
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;age = a;
+                            &nbsp;&nbsp;&nbsp;&nbsp;}
+                            &nbsp;&nbsp;&nbsp;&nbsp;public void makeSound() {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Insert generic animal sound here.");<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;public void run(int d) {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Animal runs a distance of "+d+" meters.");<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </code>
+                    <br><br>
+                    Now let's make a Pig class.
+                    <br><br>
+                    <code>
+                        public class Pig extends Animal {
+                            &nbsp;&nbsp;&nbsp;&nbsp;public Pig(int a) {
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(a);
+                            &nbsp;&nbsp;&nbsp;&nbsp;}
+                        }
+                    </code>
+                    <br><br>
+                    There's a problem now. Pig can now access the methods <code>makeSound()</code> and <code>run()</code>, but Pigs have a unique animal sound:
+                </p>
+                <img src="../assets/img/tutorial/pages/oop2/oop23.png" alt="" height="200">
+                <p>
+                    If you were to just leave the Pig class and call the <code>makeSound()</code> method:
+                    <br><br>
+                    <code>
+                        Pig wilbur = new Pig();<br>
+                        wilbur.makeSound();
+                    </code>
+                    <br><br>
+                </p>
+                <img src="../assets/img/tutorial/pages/oop2/oop24.png" alt="" height="200">
+                <p>
+                    A two-year-old would be able to see that this program has an issue.
+                    <br><br>
+                    That is one of the problems with inheritance. If a superclass method is abstract enough (we know it exists, but it varies greatly from one subclass to another), every single subclass would have to override it in its own class, which defeats the purpose of inheritance. Thus, there is another solution: polymorphism.
+                    <br><br>
+                    <code>
+                        public interface Animal {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;public void makeSound();<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;public void run(int d);<br>
+                        }
+                    </code>  
+                    <br><br>
+                    This is an interface. An interface is like an abstract class, where you are able to declare field variables and methods, but you cannot create an object from it. As well, notice that we don't implement the methods.
+                    <br><br>
+                    Let's make another Pig class.
+                    <br><br>
+                    <code>
+                        public class Pig implements Animal {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;private int age;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;public Pig(int a) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;age = a;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;public void makeSound() {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("oink");<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;public void run(int d) {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Pig ran "+d+"meters.");<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </code>
+                    <br><br>
+                    Just like how subclasses <code>extend</code> superclasses, classes can also <code>implement</code> interfaces. The classes themselves define what the interface methods do.
+                    <br><br>
+                <h2 class="text-center mt-0">Advantages of Interfaces</h2>
+                <hr class="divider my-4" />
+                <p>
+                    Java doesn't support multiple inheritance; a subclass can only have one superclass. However, it can implement multiple interfaces, which makes them very versatile.
+                    <br><br>
+                    There is also a security component, where interfaces don't show the details of the methods it contains.
+                </p>
+                <hr class="divider my-4" />
+                <p class="text-left text-muted">
+                    Bibliography:
+                    <br><br>
+                    W3Schools - Java Interfaces (<a href="https://www.w3schools.com/java/java_interface.asp">https://www.w3schools.com/java/java_interface.asp</a>)
+                    <br><br>
+                    ICS4U Course Documents
+                    <br><br>
+                    For a downloadable document, click <a href="https://docs.google.com/document/d/1LdcRmbg5iUgMf54gxuxiqUguEOzkiQjt2vp_UO4Ly8U/edit?usp=sharing">here</a>.
+                </p>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="bg-light py-5">
+            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - carminite | Made with HTML, JS, and CSS | Adapted from <a href="https://startbootstrap.com/theme/creative">Start Bootstrap's Creative theme</a></div></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>-->
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

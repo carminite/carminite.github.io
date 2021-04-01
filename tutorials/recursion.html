@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Portfolio of carminite. What else to say?" />
+        <meta name="author" content="Bernie Chen" />
+        <title>carminite - Recursion Tutorial</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS-->
+        <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />-->
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-scrolled navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">carminite</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="arrays.html">Arrays</a></li>
+                        <li class="nav-item"><a class="nav-link" href="search-and-sort.html">Search and Sort</a></li>
+                        <li class="nav-item"><a class="nav-link" href="arraylist.html">ArrayList</a></li>
+                        <li class="nav-item"><a class="nav-link" href="oop1.html">Basic OOP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="oop2.html">Advanced OOP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="recursion.html">Recursion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="page-section bg-primary">
+            <div class="container">
+                <h2 class="text-white text-center mt-0">Recursion</h2>
+                <hr class="divider light my-4" />
+                <p class="text-center text-white mb-5">Programming's Matryoshka dolls</p>
+            </div>
+        </section>
+        <section class="page-section">
+            <div class="container">
+                <p>
+                    Recursion in programming is the concept of implementing a method that calls on itself, directly or indirectly. This can be connected straight to recursive functions in mathematics, like the Fibonacci sequence.
+                </p>
+                <h2 class="text-center mt-0">Structure</h2>
+                <hr class="divider my-4" />
+                <p>
+                    Typical recursion in the method usually has two or more parts, split into cases:
+                    <ol>
+                        <li>The Base case</li>
+                        <li>The Recursive case(s)</li>
+                    </ol>
+                    To demonstrate this, let’s use the Fibonacci sequence. Assume that the method below will return the <code>n</code>th Fibonacci term:
+                    <br><br>
+                    <code>public static int fibonacci(int n) {</code>
+                    <br><br>
+                    The base case is typically a value in which all recursions should end on. In the Fibonacci sequence, we are always given that the first and second terms are 1. These would be the base cases.
+                    <br><br>
+                    <code>
+                        if (n == 2 || n == 1) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;return 1;<br>
+                        }                        
+                    </code>
+                    <br><br>
+                    The recursive case (or cases) is the case where the method is called when calculating the return value. The Fibonacci sequence is built from the function:
+                </p>
+                <img src="../assets/img/tutorial/pages/recursion/recursion1.gif" alt="" height="25">
+                <p>
+                    <br>
+                    In code, the implementation is:
+                    <br><br>
+                    <code>return fibonacci(n-1)+fibonacci(n-2);</code>
+                    <br><br>
+                    Notice the structural similarity between the code version and the math version.
+                    <br><br>
+                    Putting it all together we get:
+                    <br><br>
+                    <code>
+                        public static int fibonacci(int n) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;if (n == 2 || n == 1) { //Base case<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 1;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;return fibonacci(n-1)+fibonacci(n-2); //Recursive case<br>
+                        }
+                    </code>
+                </p>
+                <h2 class="text-center mt-0">Benefits and Consequences</h2>
+                <hr class="divider my-4" />
+                <p>
+                    Compared to iterative functions (loops), recursion often requires less implementation. As well, many functions can only be achieved through recursion (like the Fibonacci and hailstone sequences).
+                    <br><br>
+                    However, there are several drawbacks. Because recursion calls on the same method multiple times, it often takes up a lot of memory and time. Consider that for every method call, variables have to be declared and assigned, calculations have to be made, and often more methods are called. All this takes up memory.
+                </p>
+                <hr class="divider my-4" />
+                <p class="text-left text-muted">
+                    Bibliography:
+                    <br><br>
+                    ICS4U Course Documents
+                    <br><br>
+                    For a downloadable document, click <a href="https://docs.google.com/document/d/1pf5prXLuqp_mc2yivTOH71DqqY2z1FjiYh5sN3-JudM/edit?usp=sharing">here</a>.
+                </p>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="bg-light py-5">
+            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - carminite | Made with HTML, JS, and CSS | Adapted from <a href="https://startbootstrap.com/theme/creative">Start Bootstrap's Creative theme</a></div></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>-->
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Portfolio of carminite. What else to say?" />
+        <meta name="author" content="Bernie Chen" />
+        <title>carminite - Basic OOP Tutorial</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS-->
+        <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />-->
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-scrolled navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">carminite</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="arrays.html">Arrays</a></li>
+                        <li class="nav-item"><a class="nav-link" href="search-and-sort.html">Search and Sort</a></li>
+                        <li class="nav-item"><a class="nav-link" href="arraylist.html">ArrayList</a></li>
+                        <li class="nav-item"><a class="nav-link" href="oop1.html">Basic OOP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="oop2.html">Advanced OOP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="recursion.html">Recursion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="page-section bg-primary">
+            <div class="container">
+                <h2 class="text-white text-center mt-0">Basic OOP</h2>
+                <hr class="divider light my-4" />
+                <p class="text-center text-white mb-5">Attributes and Behaviours</p>
+            </div>
+        </section>
+        <section class="page-section">
+            <div class="container">
+                <p>
+                    Object-Orientated Programming (OOP) is the concept of using classes and objects to “simulate” interactions. This provides much more flexibility than procedural (or method-calling) programming.
+                    <br><br>
+                    Each object in a program has a class which defines the properties of that object - a blueprint, if you will. When constructing an object, the program will read its corresponding class and copy its field variables (attributes) and methods (behaviours). A class also has a constructor, which basically sets up the object so that it can interact properly.
+                </p>
+                <h2 class="text-center mt-0">Implementation</h2>
+                <hr class="divider my-4" />
+                <p>
+                    Let’s create a class for a person:
+                    <br><br>
+                    <code>public class Person {
+                    <br><br>
+                    }</code>
+                    <br><br>
+                    Currently, there are no attributes or behaviours in this class, so if we try to construct this Person:
+                    <br><br>
+                    <code>Person p = new Person();</code>
+                </p>
+                <img src="../assets/img/tutorial/pages/oop1/oop11.png" alt="" height="400">
+                <p>
+                    You cannot interact with it. That’s not very useful, so let’s give this guy a name.
+                </p>
+                <h3 class="text-center mt-0">Attributes</h3>
+                <hr class="divider my-4" />
+                <p>
+                    <code>public class Person {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;private String name;<br>
+                    }</code>
+                    <br><br>
+                    This name is now an attribute of every Person that will be created using this class, but there’s no way we can access it without using <code>p.name</code> (the reason will be stated later). There are two changes we can make:
+                </p>
+                <h4 class="text-center mt-0">1. Constructor</h4>
+                <hr class="divider my-4" />
+                <p>
+                    <code>public class Person {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;private String name;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;public Person(String n) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name = n;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }</code>
+                    <br><br>
+                    Now we can assign a name to this Person at construction.
+                    <br><br>
+                    <code>Person p = new Person(“Joe”);</code>
+                </p>
+                <img src="../assets/img/tutorial/pages/oop1/oop12.png" alt="" height="400"> 
+                <p>
+                    We assigned the String “Joe” to our Person’s name attribute.
+                    <br><br>
+                    Note that even when we didn’t have a constructor in our class, the Person was created without assigning attributes. This is what we call the “default constructor”. However, this default constructor will not assign any values to the object's attributes.
+                </p>
+                <h4 class="text-center mt-0">2. Get and Set Methods</h4>
+                <hr class="divider my-4" />
+                <p>
+                    <code>public class Person {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;private String name;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;public Person(String n) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name = n;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;public String getName() {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return name;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;public void setName(String n) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name = n;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }</code>
+                    <br><br>
+                    Now we added two methods into the class: one to get the name of the Person, and the other to set the name to another value.
+                    <br><br>
+                    <code>System.out.println(p.getName());</code>
+                </p>
+                <img src="../assets/img/tutorial/pages/oop1/oop13.png" alt="" height="400">
+                <p>
+                    <code>p.setName("Bob");</code>
+                </p>
+                <img src="../assets/img/tutorial/pages/oop1/oop14.png" alt="" height="400">
+                <h3 class="text-center mt-0">Behaviours</h3>
+                <hr class="divider my-4" />
+                <p>
+                    Let’s give Joe here the ability to greet someone now.
+                    <br><br>
+                    <code>public class Person {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;private String name;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;public Person(String n) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name = n;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;public String getName() {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return name;<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;public void setName(String n) {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name = n;<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;public void greet() {<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(“Hi”);<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }</code>
+                    <br><br>                    
+                    Now we execute with:
+                    <br><br>
+                    <code>p.greet();</code>
+                </p>
+                <img src="../assets/img/tutorial/pages/oop1/oop15.png" alt="ArrayList4" height="300">
+                <p>
+                    Behaviours are any methods in the class. They usually interact with their attributes to process and change their states.
+                </p>
+                <h2 class="text-center mt-0">Customs</h2>
+                <hr class="divider my-4" />
+                <p>
+                    It’s usually custom to always make attributes <code>private</code>. This means that you cannot access the attributes like a field variable (<code>Class.attribute</code>). This makes sure that attributes are not improperly tampered with. Instead, use <code>public get()</code> and <code>set()</code> methods to access attributes. 
+                    <br><br>
+                    It’s like how you would never be able to know someone’s name by looking at them, so you instead ask them for their name.
+                    <br><br>
+                </p>
+                <hr class="divider my-4" />
+                <p class="text-left text-muted">
+                    Bibliography:
+                    <br><br>
+                    ICS4U Course Documents
+                    <br><br>
+                    For a downloadable document, click <a href="https://docs.google.com/document/d/1OQLqUSP2KtIG8rI7EU5fvjcCPOHRBd1OlMwThm3IDQw/edit?usp=sharing">here</a>.
+                </p>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="bg-light py-5">
+            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - carminite | Made with HTML, JS, and CSS | Adapted from <a href="https://startbootstrap.com/theme/creative">Start Bootstrap's Creative theme</a></div></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>-->
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

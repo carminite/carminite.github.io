@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Portfolio of carminite. What else to say?" />
+        <meta name="author" content="Bernie Chen" />
+        <title>carminite - ArrayList Tutorial</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS-->
+        <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />-->
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="../css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-scrolled navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="../index.html">carminite</a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="arrays.html">Arrays</a></li>
+                        <li class="nav-item"><a class="nav-link" href="search-and-sort.html">Search and Sort</a></li>
+                        <li class="nav-item"><a class="nav-link" href="arraylist.html">ArrayList</a></li>
+                        <li class="nav-item"><a class="nav-link" href="oop1.html">Basic OOP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="oop2.html">Advanced OOP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="recursion.html">Recursion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section class="page-section bg-primary">
+            <div class="container">
+                <h2 class="text-white text-center mt-0">ArrayList</h2>
+                <hr class="divider light my-4" />
+                <p class="text-center text-white mb-5">Arrays and Lists combined together</p>
+            </div>
+        </section>
+        <section class="page-section">
+            <div class="container">
+                <p>
+                    One of the problems with arrays is that they have a set length. No matter what you do with the array, you cannot add an index or take one away. This sometimes causes problems.
+                    <br><br>
+                    For example, say you had a todo list that you wanted to convert to an array.
+                </p>
+                <img src="../assets/img/tutorial/pages/arraylist/arraylist1.png" alt="Todo List" height="400">
+                <p>
+                    You could technically use a <code>String</code> array to copy each element on the list into, leaving you with an array of length 2. However, what if you finished procrastinating? You would have to erase the first index from the array, but what to replace it with? <code>null</code> sounds like a good choice, but now what counts as the first thing on your list? The null or the second item, <code>“Do everything else”</code>?
+                    <br><br>
+                    Even worse, todo lists typically grow in length with the passage of time. What if you wanted to add another item to your todo list and your array was already full? Where do you put it? You could make another array with a greater length and copy the original array contents, but is that feasible?
+                    <br><br>
+                    This is where ArrayLists come in.
+                </p>
+                <h2 class="text-center mt-0">Implementation</h2>
+                <hr class="divider my-4" />
+                <p>
+                    First of all, let’s create an ArrayList object for our todo list.
+                    <br><br>
+                    <code>ArrayList&lt;String&gt; todo = new ArrayList();</code>
+                    <br><br>
+                    When you create an ArrayList, you have to specify what type of object you are going to fill it with, similar to arrays. This goes into the <code>&lt;&gt;</code> brackets. Notice how we didn’t need to say what the length of the ArrayList is.
+                </p>
+                <img src="../assets/img/tutorial/pages/arraylist/arraylist2.png" alt="Empty ArrayList" height="300"> 
+                <p>
+                    Now let’s add an item.
+                    <br><br>
+                    <code>todo.add(“Walk the dog”);</code>
+                </p>
+                <img src="../assets/img/tutorial/pages/arraylist/arraylist3.png" alt="ArrayList1" height="300">
+                <p>
+                    Our item appeared on the list, at index 0 (everything in programming is zero-indexed). Great. But you just remembered that you have to procrastinate before you walk the dog, so you add that:
+                    <br><br>
+                    <code>todo.add(0, “Procrastinate”);</code>
+                </p>
+                <img src="../assets/img/tutorial/pages/arraylist/arraylist4.png" alt="ArrayList2" height="300">
+                <p>
+                    What’s different about these two <code>add()</code> methods is that the former doesn’t specify the index, while the latter does (note the 0 as a parameter). By default, <code>add()</code> inserts the item at the end of a list, but putting an index makes the ArrayList insert the item into that specific index, pushing all the following items down by one (note how “Walk the dog” got pushed from index 0 to 1).
+                    <br><br>
+                    Since you have the memory of a goldfish, you forget what you have to do, so you look at the list to get the first item:
+                    <br><br>
+                    <code>String firstItem = todo.get(0);</code>
+                </p>
+                <img src="../assets/img/tutorial/pages/arraylist/arraylist5.png" alt="ArrayList3" height="300">
+                <p>
+                    The <code>get()</code> method returns the item at the index you specify. However, just like arrays, if your index is greater than or equal to the size of the array, you will get an exception.
+                    <br><br>
+                    Now you wonder how many items you have on your todo list. You look at it again.
+                    <br><br>
+                    <code>int todoSize = todo.size();</code>
+                </p>
+                <img src="../assets/img/tutorial/pages/arraylist/arraylist6.png" alt="ArrayList4" height="300">
+                <p>
+                    The <code>size()</code> method simply returns the number of items currently in the ArrayList. Since the number of items can fluctuate, so can the return value over the course of a program.
+                    <br><br>
+                    You decide to start procrastinating and end up in a YouTube spiral starting from cat video compilations and ending with Beethoven’s 5th Symphony played by toothbrushes. Fully satisfied with your lack of productivity, you decide to cross it off your list. 
+                    <br><br>
+                    <code>todo.remove(0);</code>
+                </p>
+                <img src="../assets/img/tutorial/pages/arraylist/arraylist7.png" alt="ArrayList5" height="300">
+                <p>
+                    Now what was once your first item (on index 0) has disappeared, and all the items below it have been pushed up to fill that space. This method also returns the item it removed for convenience.
+                    <br><br>
+                    Finally, you decide that your dog doesn’t need to be walked and change the item to <code>“Procrastinate”</code> once again so you can continue watching cat videos.
+                    <br><br>
+                    <code>todo.set(0, “Procrastinate”);</code>
+                </p>
+                <img src="../assets/img/tutorial/pages/arraylist/arraylist8.png" alt="ArrayList7" height="300">
+                <p>
+                    The <code>set()</code> method turns the item at the specified index (in this case, 0) into the item you want it to become (in this case, <code>“Procrastinate”</code>). This is sometimes useful when you only want to perform a calculation on an element without changing the order around.
+                    <br><br>
+                    To finish off this story, you end up watching YouTube for eight hours straight, resulting in a very tired you and a sad dog. The end.
+                </p>
+                <h2 class="text-center mt-0">Other Methods</h2>
+                <hr class="divider my-4" />
+                <ul>
+                    <li><code>toString()</code>: prints the contents of the ArrayList in order.</li>
+                    <br>
+                    <li><code>toArray()</code>: returns an Object array containing the items in the ArrayList. Useful for switching from ArrayList to array.</li>
+                </ul>
+                <hr class="divider my-4" />
+                <p class="text-left text-muted">
+                    <br>
+                    Bibliography:
+                    <br><br>
+                    Java Oracle - ArrayList (<a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html">https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html</a>)
+                    <br><br>
+                    ICS4U Course Documents
+                    <br><br>
+                    For a downloadable document, click <a href="https://docs.google.com/document/d/16ijiidKoThUxKgsOD1hB1q6NR2gDdBz79M__typST6k/edit?usp=sharing">here</a>.
+                </p>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="bg-light py-5">
+            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - carminite | Made with HTML, JS, and CSS | Adapted from <a href="https://startbootstrap.com/theme/creative">Start Bootstrap's Creative theme</a></div></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>-->
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
